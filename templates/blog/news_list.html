@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Notícias</h1>
+  {% for news_item in news %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ news_item.title }}</h5>
+        <p class="card-text">{{ news_item.content }}</p>
+        <p class="card-text"><small class="text-muted">Autor: {{ news_item.author }}</small></p>
+        {% if news_item.published %}
+          <p class="card-text"><small class="text-muted">Publicado em: {{ news_item.published_at }}</small></p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

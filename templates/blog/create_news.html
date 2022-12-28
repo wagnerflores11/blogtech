@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Tech</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Blog Tech</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="{% url 'news_list' %}">Notícias</a></li>
+      <li><a href="{% url 'create_news' %}">Criar notícia</a></li>
+    </ul>
+  </nav>
+  <main>
+    {% if news %}
+      {% for news_item in news %}
+        <article>
+          <h2>{{ news_item.title }}</h2>
+          <p>{{ news_item.content }}</p>
+          <p>Autor: {{ news_item.author }}</p>
+          {% if news_item.published %}
+            <p>Publicado em: {{ news_item.published_at }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    {% else %}
+      <p>Não há notícias para exibir.</p>
+    {% endif %}
+  </main>
+  <footer>
+    <p>Copyright 2021 - Blog Tech</p>
+  </footer>
+</body>
+</html>

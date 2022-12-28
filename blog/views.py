@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import News
-from django.utils.cache import cache_page
+from django.views.decorators.cache import cache_page
 from django.contrib.auth.decorators import login_required
 from .forms import NewsForm
 from .utils import send_new_blog_email

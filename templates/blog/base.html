@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Blog Tech</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="{% url 'news_list' %}">Notícias</a></li>
+      <li><a href="{% url 'create_news' %}">Criar notícia</a></li>
+    </ul>
+  </nav>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <p>Copyright 2021 - Blog Tech</p>
+  </footer>
+</body>
+</html>
